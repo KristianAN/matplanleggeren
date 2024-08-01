@@ -1,0 +1,11 @@
+# Krav
+ - [ ] Lage plan for 6 dagers uke (alle dager untatt lørdag)
+ - [ ] 2 dager fisk
+ - [ ] 2 dager kylling
+ - [ ] 1 dag vegetar
+ - [ ] 1 dager kjøtt
+ - [ ] Rating system for hvor sannsynlig det er at en rett skal forekomme
+ - [ ] Retter som nettop har vært skal få lav rating
+ - [ ] Lengre tid siden en rett har forekommet gir høyere rating
+ - [ ] Kategorier for retter (type, tid)
+ - [ ] Lenker til oppskrifter
