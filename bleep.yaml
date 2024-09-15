@@ -1,0 +1,72 @@
+$schema: https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json
+$version: 0.0.7
+projects:
+  webapp:
+    dependencies:
+      - io.indigoengine::tyrian-io:0.11.0
+    dependsOn: common
+    mainClass: no.krined.noplan.app.Main
+    folder: ./modules/webapp
+    extends: 
+      - template-common
+      - template-js
+  server:
+    dependencies: 
+      - org.http4s::http4s-ember-client:0.23.27
+      - org.http4s::http4s-ember-server:0.23.27
+      - org.http4s::http4s-dsl:0.23.27
+      - org.typelevel::cats-core:2.12.0
+    extends: 
+      - template-common
+      - template-jvm
+    dependsOn: common
+    platform:
+      mainClass: no.krined.noplan.App
+    folder: ./modules/server
+  repository:
+    extends: 
+      - template-common
+      - template-jvm
+    dependsOn: common
+    folder: ./modules/repository
+  common:
+    dependencies: 
+      - org.typelevel::cats-core:2.12.0
+    cross:
+      js3:
+        extends: template-js
+      jvm3:
+        extends: template-jvm
+    folder: ./modules/common
+    extends: template-common
+  tests:
+    dependsOn: server
+    extends: 
+      - template-common-test
+      - template-jvm
+    isTestProject: true
+templates:
+  template-common:
+    scala:
+      options: -encoding utf8 -feature -unchecked
+      strict: true
+      version: 3.5.0-RC6
+  template-common-test:
+    dependencies: com.disneystreaming::weaver-cats:0.8.3
+    extends: template-common
+    isTestProject: true
+    testFrameworks:
+    - weaver.framework.CatsEffect
+  template-js:
+    platform:
+      jsEmitSourceMaps: false
+      jsJsdom: false
+      jsKind: none
+      jsMode: debug
+      jsVersion: 1.16.0
+      name: js
+  template-jvm:
+    platform:
+      name: jvm
+
+
