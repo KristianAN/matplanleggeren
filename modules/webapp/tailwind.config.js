@@ -5,7 +5,7 @@ const scalajsMode = isProduction ? "opt" : "fastopt";
 
 export default {
   content: [
-    "../../.bleep/builds/normal/.bloop/webapp/webapp-js/main.js",
+    "../../.bleep/builds/normal/.bloop/webapp/webapp-js/*",
     "./index.html",
   ],
   theme: {

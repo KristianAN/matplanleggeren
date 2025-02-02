@@ -6,7 +6,9 @@ import no.krined.noplan.common.webapp.Route
 import tyrian.Html.*
 import tyrian.*
 import no.krined.noplan.app.component.Button
+import scala.scalajs.js.annotation.*
 
+@JSExportTopLevel("PlanApp")
 object NoplanApp extends TyrianIOApp[Msg, Model]:
 
   def router: Location => Msg =

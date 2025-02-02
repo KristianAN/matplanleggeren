@@ -4,10 +4,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    bleepSrc.url = "github:KristianAN/bleep-flake"; # The bleep flake
   };
 
   outputs =
-    { nixpkgs, flake-utils, ... }:
+    {
+      nixpkgs,
+      flake-utils,
+      bleepSrc,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -17,6 +23,7 @@
         };
 
         jdk = pkgs.temurin-bin-21;
+        bleep = bleepSrc.defaultPackage.${system}; # Your bleep system binary
 
         commonInputs = with pkgs; [
           chromedriver
@@ -25,7 +32,7 @@
 
         jvmInputs = [
           jdk
-          pkgs.bleep
+          bleep
           pkgs.scalafmt
         ];
 

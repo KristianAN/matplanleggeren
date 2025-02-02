@@ -14,7 +14,7 @@ object Home:
 
   def init: HomeModel =
     HomeModel(
-      title = "Hello world"
+      title = "Hello There"
     )
 
   enum HomeMsg:

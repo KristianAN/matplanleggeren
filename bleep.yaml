@@ -1,5 +1,5 @@
 $schema: https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json
-$version: 0.0.7
+$version: 0.0.12
 projects:
   webapp:
     dependencies:
@@ -50,7 +50,7 @@ templates:
     scala:
       options: -encoding utf8 -feature -unchecked
       strict: true
-      version: 3.5.0-RC6
+      version: 3.6.2
   template-common-test:
     dependencies: com.disneystreaming::weaver-cats:0.8.3
     extends: template-common
@@ -61,9 +61,10 @@ templates:
     platform:
       jsEmitSourceMaps: false
       jsJsdom: false
-      jsKind: none
-      jsMode: debug
-      jsVersion: 1.16.0
+      jsKind: esmodule
+      jsSplitStyle:
+        splitStyle: SmallestModules
+      jsVersion: 1.18.0
       name: js
   template-jvm:
     platform:
